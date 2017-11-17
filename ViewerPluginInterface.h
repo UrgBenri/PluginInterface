@@ -45,7 +45,7 @@ public:
     virtual ~ViewerPluginInterface() {}
 
 
-    QCheckBox *getActiveWidget() { return m_active; }
+    inline QCheckBox *getActiveWidget() { return m_active; }
     inline bool isActive(){ return m_active->isChecked();}
 
 signals:
@@ -54,6 +54,9 @@ signals:
 public slots:
     virtual void addMeasurementData(const QString &id
                                     , const PluginDataStructure &data) = 0;
+    virtual void setReceptionRate(int rate) {
+        Q_UNUSED(rate)
+    }
     virtual void setSelectedStep(int step) = 0;
     virtual void refresh() = 0;
     virtual void clear() = 0;
